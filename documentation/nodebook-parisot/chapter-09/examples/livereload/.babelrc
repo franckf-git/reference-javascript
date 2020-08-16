@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        ["module:metro-babel7-plugin-react-transform", {
+          "transforms": [{
+            "transform": "livereactload/babel-transform",
+            "imports": ["react"]
+          }]
+        }]
+      ]
+    }
+  }
+}
