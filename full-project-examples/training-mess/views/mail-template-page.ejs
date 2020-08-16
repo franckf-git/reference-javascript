@@ -1,0 +1,31 @@
+<% include header %>
+
+<h1>Envoyer un mail avec Template</h1>
+<br><br>
+<% include ./messages/basique %>
+<br><br>
+
+<form action="/mailtemplate" method="post">
+    <div class="form-group">
+        <label for="choixDesTemplates">Choisissez les mails à envoyer</label>
+        <select multiple class="form-control" id="choixDesTemplates" name="choixtemplates" size="6">
+            <option>confirm</option>
+            <option>invoice</option>
+            <option>progress</option>
+            <option>survey</option>
+            <option>welcome</option>
+            <option>invite</option>
+            <option>ping</option>
+            <option>reignite</option>
+            <option>upsell</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="maildedestination" aria-describedby="emailHelp"
+            placeholder="email de reception" required>
+    </div>
+</form>
+
+<hr>
+
+<% include footer %>

@@ -1,0 +1,19 @@
+<% include header %>
+
+<h1><%= title %></h1>
+
+<hr>
+
+<h3>Informations sur le dernier lancement :</h3>
+<br>
+<img src=<%= imagebadge %> class="mx-auto d-block img-fluid" style="width:20%;height:20%;" alt="badge de mission spaceX">
+<br>
+<br>
+<p><%= infosapi %></p>
+<br>
+<div class="card-body">
+  <pre><%= JSON.stringify(headers, null, 2)%></pre>
+</div>
+<hr>
+
+<% include footer %>

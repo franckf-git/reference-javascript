@@ -1,0 +1,28 @@
+<% include header %>
+
+<h1><%= title %></h1>
+<br><br>
+<h3><%= statusmail %></h3>
+<br>
+<hr>
+
+<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+
+<form action="/mail" method="post">
+  <div class="form-group">
+    <label for="maildedestination">e-mail :</label>
+    <input type="email" class="form-control" name="maildedestination" aria-describedby="emailHelp"
+      placeholder="email de reception" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="textepourmail">votre message :</label>
+    <textarea id="summernote" class="form-control" name="textepourmail" placeholder="le message a envoyer par mail"
+      rows="3"></textarea>
+  </div>
+  <button type="submit" name="button" class="btn btn-info">envoyer</button>
+</form>
+
+<hr>
+
+<% include footer-summernote %>

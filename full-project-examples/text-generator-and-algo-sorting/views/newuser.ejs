@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>newuser</title>
+        <link rel="stylesheet" href="./../main.css">
+    </head>
+
+    <body>
+        <div class="container has-text-centered is-verticaly-center">
+            <form action="/dashboard/newuser" method="post">
+                <div class="field">
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="name" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" name="password" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <button class="button is-fullwidth">
+                        <span class="icon">
+                            <i class="fas fa-user-plus fa-lg has-text-grey-dark"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>dashboard</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <div class="container has-text-centered is-verticaly-center">
+            <div class="container">
+                <div style="
+                    background-color: <% if ( typeof color != 'undefined' ) { %> #<%= color %> <% } else { %> #f8cecc<% } %>;
+                    height: 100px;
+                    width: 100px;
+                    border: 5px solid;
+                    border-color: #4a4a4a;
+                    border-radius: 50%;
+                    font: 42px bold Arial, sans-serif;
+                    ">
+                    <p class="is-verticaly-center"><% if ( typeof initial != 'undefined' ) { %> <%= initial %> <% } else { %> <% } %></p>
+                </div>
+            </div>
+            <div class="container">
+                <span class="icon is-large py-6">
+                    <a class="fas fa-user-plus fa-3x has-text-grey-dark" href="/dashboard/newuser"></a>
+                </span>
+            </div>
+            <div class="container">
+                <span class="icon is-large py-6">
+                    <a class="fas fa-sign-out-alt fa-3x has-text-grey-dark" href="/logout"></a>
+                </span>
+            </div>
+        </div>
+    </body>
+
+</html>

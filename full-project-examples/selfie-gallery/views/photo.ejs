@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>photo</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <div class="container has-text-centered is-verticaly-center">
+            <div class="container">
+                <div class="container">
+                    <%= iduser %>
+                </div>
+
+                <div class="container">
+                    <video id="preview" width="640" height="480" autoplay></video>
+                </div>
+
+                <div class="container">
+                    <span class="icon is-large py-6">
+                        <a id="take-picture" class="fas fa-camera fa-3x has-text-grey-dark"></a>
+                    </span>
+                </div>
+
+                <div class="container">
+                    <span class="icon is-large px-6">
+                        <a id="send-ok" class="fas fa-check fa-3x has-text-grey-dark is-hidden" href="/dashboard"></a>
+                    </span>
+                </div>
+
+                <div class="container">
+                    <span class="icon is-large px-6">
+                        <a id="send-wrong" class="fas fa-times fa-3x has-text-grey-dark is-hidden" href="/dashboard"></a>
+                    </span>
+                </div>
+
+                <canvas id="canvas" class="is-hidden" width="640" height="480"></canvas>
+
+
+                <script>
+                    // Grab elements, create settings, etc.
+                    const preview = document.getElementById('preview')
+                    const canvas = document.getElementById('canvas')
+                    const context = canvas.getContext('2d')
+                    const sendCheck = document.getElementById('send-ok')
+                    const sendWrong = document.getElementById('send-wrong')
+                    const takePic = document.getElementById('take-picture')
+
+                    const postPic = async (image) => {
+                        try {
+                            const poster = await fetch('/photo', {
+                                method: 'POST',
+                                mode: 'cors',
+                                headers: {
+                                    'Content-type': 'application/json; charset=UTF-8'
+                                },
+                                body: JSON.stringify({
+                                    image
+                                })
+                            })
+                            if (poster.ok) {
+                                await poster.json()
+                                sendCheck.classList.remove('is-hidden')
+                            } else {
+                                sendWrong.classList.remove('is-hidden')
+                                console.error(data)
+                            }
+                        } catch (error) {
+                            sendWrong.classList.remove('is-hidden')
+                            console.error(error)
+                        }
+                    }
+
+                    // Get access to the camera!
+                    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                        // Not adding `{ audio: true }` since we only want video now
+                        navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+                            preview.srcObject = stream
+                            preview.play()
+                        })
+                    }
+
+                    // Trigger photo take
+                    takePic.addEventListener('click', async () => {
+                        await context.drawImage(preview, 0, 0, 640, 480)
+                        const jpg = canvas.toDataURL('image/jpeg')
+                        postPic(jpg)
+                    })
+                </script>
+
+            </div>
+    </body>
+
+</html>

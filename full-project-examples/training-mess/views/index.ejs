@@ -1,0 +1,32 @@
+<% include header %>
+
+<h1><%= title %></h1>
+<h3>Version : <%= version %></h3>
+<hr>
+<% if(messageSuccess != ''){ %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= messageSuccess %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>
+<% if(messageErreur != ''){ %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= messageErreur %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>
+<% if(messageBasic != ''){ %>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <%= messageBasic %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<% } %>
+<hr>
+
+<% include footer %>

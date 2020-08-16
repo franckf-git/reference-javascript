@@ -1,0 +1,82 @@
+<% include header %>
+
+<h1><%= title %></h1>
+
+<hr>
+<div class="table-responsive">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">X</th>
+                <th scope="col">email</th>
+                <th scope="col">password</th>
+                <th scope="col">adresse 1</th>
+                <th scope="col">adresse 2</th>
+                <th scope="col">ville</th>
+                <th scope="col">departmnt</th>
+                <th scope="col">code</th>
+                <th scope="col">UID</th>
+                <th scope="col">admin ?</th>
+                <th scope="col">date modif</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <% for (const entree of tables) { %>
+            <tr>
+                <th scope="row"><%= entree.id %></th>
+                <td>
+                    <form action="/utilisateurs/suppression/<%= entree.id %>" method="post">
+                        <button class="btn btn-danger" type="submit">X</button>
+                    </form>
+                </td>
+                <td><a href="mailto:<%= entree.email %>"><%= entree.email %></a></td>
+                <td class="text-muted"><%= entree.motdepasse_enclair_BAD %></td>
+                <td><%= entree.adresse_partie1 %></td>
+                <td><%= entree.adresse_partie2 %></td>
+                <td><%= entree.ville %></td>
+                <td><%= entree.departement %></td>
+                <td><%= entree.codepostal %></td>
+                <td><%= entree.identifiantclient %></td>
+                <td><% if (entree.administrateur === 1) { %>oui<% } else { %>non<% } %></td>
+                <td class="dateutc"><%= entree.derniere_modification %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<script src='/javascripts/moment-with-locales.js'></script>
+<script src='/javascripts/jquery-3.4.1.min.js'></script>
+<script>
+    // champs de recherche
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    // transformation de la date
+    let dateformatUTC = document.getElementsByClassName("dateutc")
+
+    for (let i = 0; i < dateformatUTC.length; i++) {
+        let dateformatmoment = document.createElement("td")
+        dateformatmoment.className = "datemoment"
+        let dateformatUTCtexte = dateformatUTC[i].textContent
+        let dateformatmoment_content = document.createTextNode(moment.utc(dateformatUTCtexte).locale('fr').fromNow())
+        dateformatmoment.appendChild(dateformatmoment_content)
+        let parentDiv = dateformatUTC[i].parentNode
+        // on ajoute la date au format moment
+        parentDiv.appendChild(dateformatmoment)
+        // on cache la date UTC
+        dateformatUTC[i].style.display = "none"
+    }
+</script>
+<hr>
+
+<% include footer %>
