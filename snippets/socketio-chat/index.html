@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>quick-chat</title>
+        <style>
+            #fil_de_discussion strong {
+                color: white;
+                background-color: black;
+                padding: 2px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Feed :</h1>
+
+        <section id="fil_de_discussion">
+
+
+        </section>
+
+        <form action="/" method="post" id="pour_poster">
+            <p>
+                <input type="text" name="message_client" id="message_client" placeholder="Que dire ?" autofocus />
+                <input type="submit" id="envoi_message" value="Envoyer" />
+            </p>
+        </form>
+
+        <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8080');
+
+            var pseudo = prompt('Quel est votre pseudo ?');
+            socket.emit('ajout_utilisateur', pseudo);
+            document.title = pseudo + ' - ' + document.title;
+
+            socket.on('message', function (data) {
+                insereMessage(data.pseudo, data.message)
+            })
+
+            socket.on('ajout_utilisateur', function (pseudo) {
+                $('#fil_de_discussion').prepend('<p><em> Bienvenue à ' + pseudo + ' !</em></p>');
+            })
+
+            $('#pour_poster').submit(function () {
+                var message = $('#message_client').val();
+                socket.emit('message_client', message);
+                insereMessage(pseudo, message);
+                $('#message_client').val('').focus();
+                return false;
+            });
+
+            function insereMessage(pseudo, message) {
+                $('#fil_de_discussion').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
+            }
+
+        </script>
+    </body>
+
+</html>
