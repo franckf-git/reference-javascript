@@ -1,0 +1,13 @@
+<% include ../pages/header %>
+
+<div class="card">
+  <div class="card-body">
+    <a href="/comment/<%= message.id %>">
+      <img src="/assets/user.png" class="rounded-circle" style="width:48px;height:48px;" alt="user icon">
+    </a>
+    <%= message.content %>
+    <i class="small"> <%= message.created_at.fromNow() %> </i>
+  </div>
+</div>
+
+<% include ../pages/footer %>

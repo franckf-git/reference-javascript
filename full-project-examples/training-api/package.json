@@ -1,0 +1,31 @@
+{
+  "name": "playground-api",
+  "version": "3.0.0",
+  "description": "minimal restful api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/franckf/playground-api.git"
+  },
+  "author": "franckf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/franckf/playground-api/issues"
+  },
+  "homepage": "https://gitlab.com/franckf/playground-api#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.8",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

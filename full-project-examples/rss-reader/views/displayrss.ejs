@@ -1,0 +1,10 @@
+<% include header %>
+
+<h2><%= feed.title %></h2>
+<ul>
+<% for (const item of feed.items) { %>
+    <li><a href="<%= item.link %>"><%= item.title %></a> <%= item.pubDate %> </li>
+<% } %>
+</ul>
+
+<% include footer %>
