@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>A prospos de nous</title>
+        <link rel="stylesheet" href="./bulma.css">
+        <style>
+            body {
+                background: linear-gradient(180deg, #00d1b2 0%, #62ffe4 100%);
+            }
+
+            /*
+            @media (min-width: 1024px) {
+                body {
+                    background: linear-gradient(180deg, #00d1b2 0%, #62ffe4 100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 100vh;
+                    overflow: visible;
+                }
+            }
+
+            @media (max-width: 1023px) {
+                body {
+                    background: linear-gradient(180deg, #00d1b2 0%, #62ffe4 100%);
+                    height: auto;
+                    width: auto;
+                    overflow: visible;
+                }
+            } */
+
+        </style>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="box">
+                <h2 class="subtitle has-text-primary has-text-centered is-size-5-mobile">Notre équipe :</h2>
+                <div class="content">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card has-text-centered is-shadowless">
+                                <div class="card-header-title is-centered">
+                                    <figure class="image is-128x128">
+                                        <img class="is-rounded" src="https://randomuser.me/api/portraits/men/1.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        Franck A.
+                                        <br>
+                                        <span class="has-text-weight-light has-text-primary">Developpeur</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card has-text-centered is-shadowless">
+                                <div class="card-header-title is-centered">
+                                    <figure class="image is-128x128">
+                                        <img class="is-rounded" src="https://randomuser.me/api/portraits/men/12.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        Franck B.
+                                        <br>
+                                        <span class="has-text-weight-light has-text-primary">Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card has-text-centered is-shadowless">
+                                <div class="card-header-title is-centered">
+                                    <figure class="image is-128x128">
+                                        <img class="is-rounded" src="https://randomuser.me/api/portraits/men/99.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        Franck C.
+                                        <br>
+                                        <span class="has-text-weight-light has-text-primary">Marketing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const cartes = document.querySelectorAll('.card')
+            cartes.forEach(carte => {
+                carte.addEventListener('mouseenter', () => carte.classList.remove('is-shadowless'))
+                carte.addEventListener('mouseleave', () => carte.classList.add('is-shadowless'))
+            })
+
+        </script>
+
+    </body>
+
+</html>

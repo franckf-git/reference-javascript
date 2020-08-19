@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mobile</title>
+        <link rel="stylesheet" href="./ressources/bulma.css">
+        <link rel="stylesheet" href="./ressources/main.css">
+        <link rel="shortcut icon" href="./images/undraw_logo_design_bjnx.svg" type="image/x-icon">
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="columns is-desktop">
+                <div class="column">
+                    <div class="card has-background-grey-dark">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_sign_in_e6hj.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered has-text-grey-light">Enregistrez-vous</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_logo_design_bjnx.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered">logo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_through_the_window_51ew.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered">Aquarium</p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer is-hidden">
+                            <a href="#" class="card-footer-item is-size-7">Save</a>
+                            <a href="#" class="card-footer-item is-size-7">Edit</a>
+                            <a href="#" class="card-footer-item is-size-7">Delete</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-desktop">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_sign_in_e6hj.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered">Connectez-vous</p>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer is-hidden">
+                            <p class="card-footer-item">
+                                <span><a href="#">Twitter</a>
+                                </span>
+                            </p>
+                            <p class="card-footer-item">
+                                <span><a href="#">Facebook</a>
+                                </span>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-background-danger">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_logo_design_bjnx.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered has-text-info">logo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="./images/undraw_through_the_window_51ew.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6 has-text-centered">Fenetres</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            const carte = document.querySelectorAll('.card')
+            if (carte.length > 0) {
+                carte.forEach(function (element) {
+                    element.addEventListener('click', function () {
+                        afficherFooter(element);
+                    });
+                });
+            }
+
+            function afficherFooter(element) {
+                let menucarte = element.querySelector('.card-footer')
+                if (menucarte != null) {
+                    menucarte.classList.toggle('is-hidden')
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Connexion</title>
+        <link rel="stylesheet" href="./ressources/bulma.css">
+        <link rel="stylesheet" href="./ressources/main.css">
+        <link rel="stylesheet" href="../ressources/fontawesome-free-5.12.0-web/css/all.min.css">
+    </head>
+
+    <body>
+        <section class="section has-background-black-ter fondconnexion">
+            <section class="section has-background-white fondconnexionencart">
+                <h1 class="title has-text-centered is-hidden-mobile">Hello, there</h1>
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="tabs is-fullwidth is-hidden-mobile">
+                            <ul>
+                                <li class="tab-item" id="tab-1"><a>Enregistrement</a></li>
+                                <li class="is-active tab-item" id="tab-2"><a>Connexion</a></li>
+                                <li class="tab-item" id="tab-3"><a>Mot de passe oublié</a></li>
+                            </ul>
+                        </div>
+                        <div class="is-centered ongletsmobile is-hidden-tablet">
+                            <div class="buttons has-addons is-centered">
+                                <button class="button tab-item" id="tab-1">Enregistrement</button>
+                                <button class="is-active button tab-item" id="tab-2">Connexion</button>
+                                <button class="button tab-item" id="tab-3">Mot de passe oublié</button>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="notification is-success is-hidden">
+                            <button class="delete"></button>
+                            Vous êtes enregistré avec succès, vous allez recevoir un email.
+                        </div>
+                        <div class="notification is-danger is-hidden">
+                            <button class="delete"></button>
+                            Mot de passe invalide.
+                        </div>
+                        <div id="tab-1-content" class="is-hidden tab-content-item">
+                            <div class="columns is-centered">
+                                <div class="column is-half">
+                                    <form action="/enregistreapi" method="post">
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="text" placeholder="Nom d'utilisateur"
+                                                    id="nomutil">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-user"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-success is-hidden"
+                                                    id="utilok">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="alertelongutil">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="alertelongutil">Le nom d'utilisateur
+                                                doit comporter au moins 4 caractères.</p>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="email" placeholder="Email" id="emailtest">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-success is-hidden"
+                                                    id="emailok">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="regexemail">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="regexemail">Cet email n'est pas
+                                                valide.</p>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="password" placeholder="Mot de passe"
+                                                    id="motdepasse">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="alertelongpass">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                </span>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="alertelongpass">Le mot de passe doit
+                                                comporter au moins 8 caractères.</p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="password"
+                                                    placeholder="Confirmer le mot de passe" id="confmotdepasse">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="alerteconfpass">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                </span>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="alerteconfpass">Les mots de passe ne
+                                                correspondent pas.</p>
+                                        </div>
+                                        <div class="field">
+                                            <div class="control">
+                                                <label class="checkbox has-text-weight-light is-size-7">
+                                                    <label class="switch">
+                                                        <input type="checkbox" id="checkboxcgu">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                    En m'enregistrant j'accepte les <a
+                                                        href="https://fr.wikipedia.org/wiki/Conditions_g%C3%A9n%C3%A9rales_d%27utilisation">conditions
+                                                        générales d'utilisations.</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-text-centered">
+                                                <button type="submit" class="button is-primary is-fullwidth"
+                                                    title="S'enregistrer" id="bouttonenregistrement"
+                                                    disabled>S'enregistrer</button>
+                                                <p class="help is-danger is-hidden" id="alerteenregistrement">Remplissez
+                                                    les champs pour vous enregistrer.</p>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-2-content" class="tab-content-item">
+                            <div class="columns is-centered">
+                                <div class="column is-half">
+                                    <form action="/connexionapi" method="post">
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="email" placeholder="Email" id="emailtest">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-success is-hidden"
+                                                    id="emailok">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="regexemail">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="regexemail">Cet email n'est pas
+                                                valide.</p>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="password" placeholder="Mot de passe"
+                                                    id="motdepasse">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="alertelongpass">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                </span>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="alertelongpass">Le mot de passe doit
+                                                comporter au moins 8 caractères.</p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-text-centered">
+                                                <button type="submit" class="button is-primary is-fullwidth"
+                                                    title="Se connecter" id="bouttonconnexion" disabled>Se
+                                                    connecter</button>
+                                                <p class="help is-danger is-hidden" id="alerteconnexion">Remplissez
+                                                    les champs pour vous connecter.</p>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-3-content" class="is-hidden tab-content-item">
+                            <div class="columns is-centered">
+                                <div class="column is-half">
+                                    <form action="/enregistreapi" method="post">
+                                        <div class="field">
+                                            <p class="control has-icons-left has-icons-right">
+                                                <input class="input" type="email" placeholder="Email" id="emailtest">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-success is-hidden"
+                                                    id="emailok">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                <span class="icon is-small is-right has-text-danger is-hidden"
+                                                    id="regexemail">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                            </p>
+                                            <p class="help is-danger is-hidden" id="regexemail">Cet email n'est pas
+                                                valide.</p>
+                                            </p>
+                                        </div>
+                                        <div class="field">
+                                            <p class="control has-text-centered">
+                                                <button type="submit" class="button is-primary is-fullwidth"
+                                                    title="Recevoir un nouveau mot de passe" id="bouttonmdpoublie"
+                                                    disabled>Recevoir un nouveau
+                                                    mot de passe</button>
+                                                <p class="help is-danger is-hidden" id="alertemdpoublie">Renseigner
+                                                    votre email pour recevoir un nouveau mot de passe.</p>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <script>
+            /* gestion des onglets (cf Traversy Média) */
+            const onglets = document.querySelectorAll('.tab-item');
+            const contenusOnglets = document.querySelectorAll('.tab-content-item');
+
+            function choixOnglet() {
+                retirerOngletActif();
+                cacherAutresContenus();
+                this.classList.add('is-active');
+                const contenuOngletActif = document.querySelector(`#${this.id}-content`);
+                contenuOngletActif.classList.remove('is-hidden');
+            }
+
+            function retirerOngletActif() {
+                onglets.forEach(item => {
+                    item.classList.remove('is-active');
+                });
+            }
+
+            function cacherAutresContenus() {
+                contenusOnglets.forEach(item => {
+                    item.classList.add('is-hidden');
+                });
+            }
+            onglets.forEach(item => {
+                item.addEventListener('click', choixOnglet);
+            });
+
+            /* fermeture des notifications*/
+            /* juste caché
+                        const bouttondeletenotif = document.querySelectorAll('.delete')
+                        bouttondeletenotif.forEach(item => {
+                            item.parentNode.addEventListener('click', () => {
+                                item.parentNode.classList.add('is-hidden')
+                            });
+                        })
+            */
+            const bouttondeletenotif = document.querySelectorAll('.delete')
+            bouttondeletenotif.forEach(item => {
+                item.parentNode.addEventListener('click', () => {
+                    item.parentNode.style.display = 'none';
+                });
+            })
+
+            /* TESTS FORMULAIRES */
+            const champsAValider = {
+                utilisateur: false,
+                email: false,
+                motdepasse: false,
+                confirmmdp: false,
+                cgu: false
+            }
+
+            /* NBR de CARAC UTILISATEUR */
+            const nomutil = document.querySelector('#nomutil')
+            const utilok = document.querySelector('#utilok')
+            const alertelongutil = document.querySelectorAll('#alertelongutil')
+            nomutil.addEventListener('change', () => {
+                if (nomutil.value.length < 4) {
+                    alertelongutil.forEach(item => {
+                        item.classList.remove('is-hidden')
+                        utilok.classList.add('is-hidden')
+                        champsAValider.utilisateur = false
+                    })
+                } else {
+                    utilok.classList.remove('is-hidden')
+                    alertelongutil.forEach(item => {
+                        item.classList.add('is-hidden')
+                        champsAValider.utilisateur = true
+                    })
+                }
+            })
+
+            /* EMAIL REGEX */
+            const emailtest = document.querySelectorAll('#emailtest')
+            const emailok = document.querySelectorAll('#emailok')
+            const regexemail = document.querySelectorAll('#regexemail')
+            const regexemailvalide =
+                /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/
+            // autre option : /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+            emailtest.forEach(item => {
+                item.addEventListener('change', () => {
+                    const testformatemail = regexemailvalide.test(String(item.value).toLowerCase())
+                    if (!testformatemail) {
+                        emailok.forEach(item => {
+                            item.classList.add('is-hidden')
+                        })
+                        regexemail.forEach(item => {
+                            item.classList.remove('is-hidden')
+                            champsAValider.email = false
+                        })
+                    } else {
+                        emailok.forEach(item => {
+                            item.classList.remove('is-hidden')
+                        })
+                        regexemail.forEach(item => {
+                            item.classList.add('is-hidden')
+                            champsAValider.email = true
+                        })
+                    }
+                })
+            })
+
+            /* NBR de CARAC MOT DE PASSE */
+            const motdepasse = document.querySelectorAll('#motdepasse')
+            const alertelongpass = document.querySelectorAll('#alertelongpass')
+            motdepasse.forEach(item => {
+                item.addEventListener('keyup', () => {
+                    if (item.value.length < 8) {
+                        alertelongpass.forEach(item => {
+                            item.classList.remove('is-hidden')
+                            champsAValider.motdepasse = false
+                        })
+                    } else {
+                        alertelongpass.forEach(item => {
+                            item.classList.add('is-hidden')
+                            champsAValider.motdepasse = true
+                        })
+                    }
+                })
+            })
+
+            /* CONFIRMATION MOT DE PASSE */
+            const confmotdepasse = document.querySelector('#confmotdepasse')
+            const alerteconfpass = document.querySelectorAll('#alerteconfpass')
+            confmotdepasse.addEventListener('keyup', () => {
+                const mdpenregistre = motdepasse[0].value
+                if (confmotdepasse.value !== mdpenregistre) {
+                    alerteconfpass.forEach(item => {
+                        item.classList.remove('is-hidden')
+                        champsAValider.confirmmdp = false
+                    })
+                } else {
+                    alerteconfpass.forEach(item => {
+                        item.classList.add('is-hidden')
+                        champsAValider.confirmmdp = true
+                    })
+                }
+            })
+
+            /* CGU */
+            const checkboxcgu = document.querySelector('#checkboxcgu')
+            checkboxcgu.addEventListener('click', () => {
+                if (champsAValider.cgu == false) {
+                    champsAValider.cgu = true
+                } else {
+                    champsAValider.cgu = false
+                }
+            })
+
+            /* ACTIVATION DU BOUTON ENREGISTREMENT SI TOUT EST CORRECT */
+            const bouttonenregistrement = document.querySelector('#bouttonenregistrement')
+            bouttonenregistrement.addEventListener('pointerenter', () => {
+                const enregistrementdispo = Object.keys(champsAValider).every((formulaire) =>
+                    champsAValider[formulaire])
+                if (enregistrementdispo) {
+                    alerteenregistrement.classList.add('is-hidden')
+                    bouttonenregistrement.removeAttribute('disabled')
+                } else {
+                    alerteenregistrement.classList.remove('is-hidden')
+                    bouttonenregistrement.setAttribute('disabled', true)
+                }
+            })
+
+            /* ACTIVATION DU BOUTON CONNEXION SI TOUT EST CORRECT */
+            const bouttonconnexion = document.querySelector('#bouttonconnexion')
+            bouttonconnexion.addEventListener('pointerenter', () => {
+                if (champsAValider.email && champsAValider.motdepasse) {
+                    alerteconnexion.classList.add('is-hidden')
+                    bouttonconnexion.removeAttribute('disabled')
+                } else {
+                    alerteconnexion.classList.remove('is-hidden')
+                    bouttonconnexion.setAttribute('disabled', true)
+                }
+            })
+
+            /* ACTIVATION DU BOUTON MDPOUBLIE SI TOUT EST CORRECT */
+            const bouttonmdpoublie = document.querySelector('#bouttonmdpoublie')
+            bouttonmdpoublie.addEventListener('pointerenter', () => {
+                if (champsAValider.email) {
+                    alertemdpoublie.classList.add('is-hidden')
+                    bouttonmdpoublie.removeAttribute('disabled')
+                } else {
+                    alertemdpoublie.classList.remove('is-hidden')
+                    bouttonmdpoublie.setAttribute('disabled', true)
+                }
+            })
+
+        </script>
+    </body>
+
+</html>

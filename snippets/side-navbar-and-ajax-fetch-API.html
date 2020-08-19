@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./ressources/bulma.css">
+        <style>
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                transition: 0.5s;
+            }
+
+            .main {
+                transition: margin-left 0.5s;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <section class="section main">
+            <div class="container">
+                <a class="navbar-burger burger is-pulled-left" onclick="openNav()">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+                <a href="./mobile.html" class="button">mobile</a>
+                <a href="./landingpage.html" class="button">landingpage</a>
+                <a href="./chat.html" class="button">chat</a>
+                <a href="./menu.html" class="button">menu</a>
+                <a href="./login.html" class="button">login</a>
+                <a href="./mail.html" class="button">mail</a>
+                <a href="./about.html" class="button">about</a>
+                <a href="./pagination.html" class="button">pagination</a>
+            </div>
+        </section>
+
+        <div class="sidenav has-background-grey-darker">
+            <section class="section">
+                <a class="delete is-large has-background-danger is-pulled-right" onclick="closeNav()"></a>
+                <br>
+                <a href=" ./mobile.html" class="button">mobile</a>
+                <a href="./landingpage.html" class="button">landingpage</a>
+                <a href="./chat.html" class="button">chat</a>
+                <a href="./menu.html" class="button">menu</a>
+                <a href="./login.html" class="button">login</a>
+                <a href="./mail.html" class="button">mail</a>
+                <a href="./about.html" class="button">about</a>
+                <a href="./pagination.html" class="button">pagination</a>
+            </section>
+        </div>
+        <section class="section">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <button class="button is-primary" id="getajax" onclick="getajax()">Get Ajax</button>
+                        <button class="button is-primary" id="postajax" onclick="postajax()">Post Ajax</button>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <button class="button is-warning" id="getfetch" onclick="getfetch()">Get Fetch</button>
+                        <button class="button is-warning" id="postfetch" onclick="postfetch()">Post Fetch</button>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <p class="title">Third column</p>
+                        <p class="subtitle">With some content</p>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+                                pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+                                feugiat facilisis.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical is-8">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <article class="tile is-child box">
+                                <p class="title">Vertical tiles</p>
+                                <p class="subtitle">Top box</p>
+                            </article>
+                            <article class="tile is-child box">
+                                <p class="title">Vertical tiles</p>
+                                <p class="subtitle">Bottom box</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">Middle box</p>
+                                <p class="subtitle">With an image</p>
+                                <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/640x480.png">
+                                </figure>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">Wide column</p>
+                            <p class="subtitle">Aligned with the right column</p>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+                                    pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+                                    feugiat facilisis.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <div class="content">
+                            <p class="title">Tall column</p>
+                            <p class="subtitle">With even more content</p>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat
+                                    pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat
+                                    gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui
+                                    porta orci, quis semper odio felis ut quam.</p>
+                                <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a
+                                    sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor
+                                    lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi,
+                                    fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus
+                                    dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
+                                <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue
+                                    lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed,
+                                    gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis
+                                    faucibus libero. Quisque non semper leo.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <p class="title">Side column</p>
+                        <p class="subtitle">With some content</p>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+                                pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+                                feugiat facilisis.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="tile is-parent is-8">
+                    <article class="tile is-child box">
+                        <p class="title">Main column</p>
+                        <p class="subtitle">With some content</p>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
+                                pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
+                                feugiat facilisis.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // barre de navigation en push
+            function openNav() {
+                document.querySelector(".sidenav").style.width = "250px";
+                document.querySelector(".main").style.marginLeft = "250px";
+            }
+
+            function closeNav() {
+                document.querySelector(".sidenav").style.width = "0";
+                document.querySelector(".main").style.marginLeft = "0";
+            }
+
+            // API
+            async function getajax() {
+                var xhttp = new XMLHttpRequest()
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState !== 4) {
+                        document.querySelector('#getajax').classList.add('is-loading')
+                    } else if (this.readyState == 4 && this.status == 200) {
+                        let recuperation = this
+                        console.log(recuperation)
+                        const data = recuperation.response
+                        console.log(data)
+                        let json = JSON.parse(data)
+                        document.querySelector('#getajax').classList.remove('is-loading')
+                        console.log(json)
+                    } else if (this.status == 404) {
+                        document.querySelector('#getajax').classList.add('is-danger')
+                        document.querySelector('#getajax').classList.remove('is-loading')
+                    }
+                }
+                await xhttp.open('GET', 'https://jsonplaceholder.typicode.com/todos/2', true)
+                xhttp.send()
+            }
+
+            async function postajax() {
+                var xhttp = new XMLHttpRequest()
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState !== 4) {
+                        document.querySelector('#postajax').classList.add('is-loading')
+                    } else if (this.readyState == 4 && this.status == 200) {
+                        let recuperation = this
+                        console.log(recuperation)
+                        const data = recuperation.response
+                        console.log(data)
+                        let json = JSON.parse(data)
+                        document.querySelector('#postajax').classList.remove('is-loading')
+                        console.log(json)
+                    } else if (this.status == 404) {
+                        document.querySelector('#postajax').classList.add('is-danger')
+                        document.querySelector('#postajax').classList.remove('is-loading')
+                    }
+                }
+                await xhttp.open('POST', 'https://jsonplaceholder.typicode.com/posts', true)
+                await xhttp.setRequestHeader('Content-Type', 'application/json')
+                await xhttp.setRequestHeader('Access-Control-Allow-Origin', '*')
+                let mybody = JSON.stringify({
+                    title: 'foo',
+                    body: 'bar',
+                    userId: 1
+                })
+                xhttp.send(mybody)
+            }
+
+            async function getfetch() {
+                try {
+                    await document.querySelector('#getfetch').classList.add('is-loading')
+                    const recuperation = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    if (recuperation.ok) {
+                        const data = await recuperation.json()
+                        await document.querySelector('#getfetch').classList.remove('is-loading')
+                        console.table(data)
+                    } else {
+                        document.querySelector('#getfetch').classList.add('is-danger')
+                    }
+                } catch (error) {
+                    console.error(error)
+                    document.querySelector('#getfetch').classList.add('is-danger')
+                }
+            }
+
+            async function postfetch() {
+                try {
+                    await document.querySelector('#postfetch').classList.add('is-loading')
+                    const poster = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8'
+                        },
+                        body: JSON.stringify({
+                            title: 'foo',
+                            body: 'bar',
+                            userId: 1
+                        })
+                    })
+                    if (poster.ok) {
+                        const data = await poster.json()
+                        await document.querySelector('#postfetch').classList.remove('is-loading')
+                        console.table(data)
+                    } else {
+                        document.querySelector('#postfetch').classList.add('is-danger')
+                    }
+                } catch (error) {
+                    console.error(error)
+                    document.querySelector('#postfetch').classList.add('is-danger')
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

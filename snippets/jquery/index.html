@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ressources/bootstrap-4.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./ressources/fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" href="./ressources/jquery-ui-themes-1.12.1/jquery-ui.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <br>
+      <hr>
+      <button class="btn btn-primary" id="buttonget"><i class="fas fa-users"></i> Get Users</button>
+      <button class="btn btn-danger" id="buttonhide"><i class="fas fa-eye-slash"></i> Hide</button>
+      <br>
+      <div class="card-columns" id="cardsusers"></div>
+      <hr>
+      <br>
+      <p><input type="text" id="datepicker"></p>
+      <button class="btn btn-success" id="buttonsavedate"><i class="far fa-save"></i> Enregistrer</button>
+      <br>
+      <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+        <div class="toast" data-delay="2000" style="position: absolute; top: 0; right: 0;" id="savedateok">
+          <div class="toast-body bg-success text-white">
+            <i class="far fa-save"></i> <strong>Votre date <i id="dateretour"></i> est sauvé.</strong>
+            <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">title</span>
+          </div>
+          <input type="text" class="form-control" id="titleinput">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">body</span>
+          </div>
+          <input type="text" class="form-control" id="bodyinput">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">userId</span>
+          </div>
+          <input type="text" class="form-control" id="userinput">
+        </div>
+      </form>
+      <button class="btn btn-success" id="buttonsaveform"><i class="far fa-save"></i> Enregistrer</button>
+      <div id="alertpostjph"></div>
+    </div>
+    <hr>
+    <br>
+    <button class="menu-btn">vanilla JS</button>
+    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+      <div class="toast toast-menu" data-delay="2000" style="position: absolute; top: 0; right: 0;">
+        <div class="toast-body bg-success text-white">
+          <i class="far fa-save"></i> <strong>TOAST vanilla + bootstrap.</strong>
+          <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br>
+    <script src="./ressources/jquery-3.4.1.js"></script>
+    <script src="./ressources/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="./ressources/jquery-ui-1.12.1/datepicker-fr.js"></script>
+    <script src="./ressources/popper.min.js"></script>
+    <script src="./ressources/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+    <script src="./ressources/main.js"></script>
+    <script>
+      document.querySelector('.menu-btn').addEventListener('click', () => document.querySelector('.toast-menu')
+        .classList
+        .toggle('show'))
+
+    </script>
+  </body>
+
+</html>

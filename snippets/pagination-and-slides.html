@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pagination</title>
+        <link rel="stylesheet" href="./ressources/bulma.css">
+    </head>
+
+    <body>
+        <header class="section">
+            <h1 class="title">Pagination</h1>
+            <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+                <a class="pagination-previous">Avant</a>
+                <a class="pagination-next">Après</a>
+                <ul class="pagination-list">
+                    <li><a class="pagination-link" id="page">1</a></li>
+                    <li><a class="pagination-link" id="page">2</a></li>
+                    <li><a class="pagination-link" id="page">3</a></li>
+                    <li><a class="pagination-link" id="page">4</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="section has-text-centered">
+            <div class="container">
+                <figure class="image is-128x128 is-hidden">
+                    <img class="is-rounded" src="https://randomuser.me/api/portraits/med/women/1.jpg" id="photo">
+                </figure>
+                <figure class="image is-128x128 is-hidden">
+                    <img class="is-rounded" src="https://randomuser.me/api/portraits/med/women/2.jpg" id="photo">
+                </figure>
+                <figure class="image is-128x128 is-hidden">
+                    <img class="is-rounded" src="https://randomuser.me/api/portraits/med/women/3.jpg" id="photo">
+                </figure>
+                <figure class="image is-128x128 is-hidden">
+                    <img class="is-rounded" src="https://randomuser.me/api/portraits/med/women/4.jpg" id="photo">
+                </figure>
+            </div>
+        </section>
+
+        <section class="section">
+            <h1 class="title">Auto-slides</h1>
+            <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+                <ul class="pagination-list navigateslide">
+                    <!-- <li><a class="pagination-link" id="page">1</a></li>
+                    <li><a class="pagination-link" id="page">2</a></li>
+                    <li><a class="pagination-link" id="page">3</a></li>
+                    <li><a class="pagination-link" id="page">4</a></li> -->
+                </ul>
+            </nav>
+        </section>
+
+        <div class="slide">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="./images/undraw_through_the_window_51ew.svg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="subtitle is-6 has-text-centered">Fenetres</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="card has-background-danger">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="./images/undraw_logo_design_bjnx.svg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="subtitle is-6 has-text-centered has-text-info">logo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <p>slide 3</p>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="./images/undraw_sign_in_e6hj.svg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="subtitle is-6 has-text-centered">Connectez-vous</p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="card-footer is-hidden">
+                    <p class="card-footer-item">
+                        <span><a href="#">Twitter</a>
+                        </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span><a href="#">Facebook</a>
+                        </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="./images/undraw_sign_in_e6hj.svg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="subtitle is-6 has-text-centered">Connectez-vous</p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="card-footer is-hidden">
+                    <p class="card-footer-item">
+                        <span><a href="#">Twitter</a>
+                        </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span><a href="#">Facebook</a>
+                        </span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+        <div class="slide">
+            <p>slide 6</p>
+        </div>
+        <div class="slide">
+            <p>slide 7</p>
+        </div>
+        <!-- <span class="icon">
+            <img src="./icones/plus-circle.svg">
+        </span>
+        <span class="icon is-large">
+            <img src="./icones/plus-square.svg">
+        </span> -->
+        <script>
+            /* Pagination */
+            const pages = document.querySelectorAll('#page')
+            const photos = document.querySelectorAll('#photo')
+            const clearPages = () => pages.forEach(page => page.classList.remove('is-current'))
+            pages.forEach(element => element.addEventListener('click', () => clickpage(element)))
+
+            const clickpage = (element) => {
+                clearPages()
+                element.classList.add('is-current')
+                photos.forEach(image => {
+                    const numeroImage = image.src.split('.')[1].split('/')[5]
+                    image.parentNode.classList.add('is-hidden')
+                    if (numeroImage === element.innerHTML) {
+                        image.parentNode.classList.remove('is-hidden')
+                    }
+                })
+            }
+
+            const pageavant = document.querySelector('.pagination-previous')
+            const pageapres = document.querySelector('.pagination-next')
+            pageavant.addEventListener('click', () => pagePrecedente())
+            pageapres.addEventListener('click', () => pageSuivante())
+
+            const pagePrecedente = () => {
+                const pagecourrante = document.querySelector('.is-current').innerHTML
+                const pageprec = Number(pagecourrante) - 1
+                pages.forEach(page => {
+                    if (page.innerHTML == pageprec) {
+                        clickpage(page)
+                    }
+                })
+            }
+            const pageSuivante = () => {
+                const pagecourrante = document.querySelector('.is-current').innerHTML
+                const pagesuiv = Number(pagecourrante) + 1
+                pages.forEach(page => {
+                    if (page.innerHTML == pagesuiv) {
+                        clickpage(page)
+                    }
+                })
+            }
+
+            /* Auto-slides */
+            const slides = document.querySelectorAll('.slide')
+            const navigateslide = document.querySelector('.navigateslide')
+            navigateslide.innerHTML = ""
+            slides.forEach((slide, index) => {
+                slide.classList.add('is-hidden')
+                let pagesslides = index + 1
+                let pagination = `<a class="pagination-link" id="boutonspages">${pagesslides}</a>`
+                let chaquepage = document.createElement('li')
+                navigateslide.appendChild(chaquepage)
+                chaquepage.innerHTML = pagination
+            })
+            const boutonspages = document.querySelectorAll('#boutonspages')
+            boutonspages.forEach(bouton => {
+                bouton.addEventListener('click', () => {
+                    const positionslide = bouton.innerHTML - 1
+                    slides.forEach(slide => slide.classList.add('is-hidden'))
+                    slides[positionslide].classList.remove('is-hidden')
+                })
+
+            })
+
+        </script>
+    </body>
+
+</html>
