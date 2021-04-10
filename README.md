@@ -1,5 +1,9 @@
 ## notes and test to come
 
+- [adonisv5](https://preview.adonisjs.com/guides/http/form-submissions)
+- [nestjs](https://docs.nestjs.com/)
+- [sailsjs](https://sailsjs.com/get-started)
+
 - [ramda-functional](https://ramdajs.com/docs/)
 
 - [datefns](https://date-fns.org/)
