@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr" class="has-background-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>startpage</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("serviceworker.js");
+        }
+      });
+    </script>
+    <script>
+      const startTime = () => {
+        const date = new Date().toLocaleDateString();
+        const time = new Date().toLocaleTimeString();
+        document.getElementById("clock").innerHTML = `${date} ${time}`;
+        t = setTimeout("startTime()", 10000);
+      };
+
+      window.onload = () => startTime();
+    </script>
+  </head>
+
+  <body>
+    <div class="container is-fluid">
+      <section class="hero is-small">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <div id="clock" class="is-size-1 has-text-light"></div>
+            <form method="get" action="https://duckduckgo.com/?">
+              <div class="control">
+                <input
+                  name="q"
+                  class="input"
+                  type="text"
+                  placeholder="search duckduckgo"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <hr />
+
+      <a
+        class="button is-fullwidth is-outlined"
+        href="https://www.gouvernement.fr/info-coronavirus"
+        target="_blank"
+        >info-covid</a
+      >
+      <a
+        class="button is-fullwidth is-outlined"
+        href="https://www.meteorama.fr/86000.html?v=heure-par-heure"
+        target="_blank"
+        >weather</a
+      >
+      <a
+        class="button is-fullwidth is-outlined"
+        href="https://gitlab.com/users/franckf/projects"
+        target="_blank"
+        >gitlab</a
+      >
+      <a
+        class="button is-fullwidth is-outlined"
+        href="https://github.com/franckf-git"
+        target="_blank"
+        >github</a
+      >
+      <a
+        class="button is-fullwidth is-outlined"
+        href="http://127.0.0.1:5500/"
+        target="_blank"
+        >liveserver</a
+      >
+    </div>
+  </body>
+</html>

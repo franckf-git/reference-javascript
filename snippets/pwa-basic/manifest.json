@@ -1,0 +1,19 @@
+{
+    "name": "startpage Progressive Web App",
+    "short_name": "startpage",
+    "description": "startpage PWA - nothing fancy only a link to site",
+    "icons": [
+        {
+            "src": "icon-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone"
+}
